@@ -22,3 +22,13 @@ request('https://www.purgomalum.com/service')
         // assert.equal(response.text, 'false');        
         console.log('no issues')
     })
+
+//json
+request('https://www.purgomalum.com/service')
+    .get('/json?text=ass')
+    .set('Accept', 'application/json')
+    .expect(200)
+    .then(response => {
+        assert.equal(response.body.result, '***');        
+        console.log('no issues')
+    }) 
