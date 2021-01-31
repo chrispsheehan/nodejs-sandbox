@@ -29,6 +29,23 @@ request('https://www.purgomalum.com/service')
     .set('Accept', 'application/json')
     .expect(200)
     .then(response => {
+        //assert.equal(response.body.result, 'ass');     
         assert.equal(response.body.result, '***');        
         console.log('no issues')
     }) 
+
+
+// with callback
+function getResponse(callback) {
+    request('https://www.purgomalum.com/service')
+        .get('/json?text=ass')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .then(response => {
+            callback(response);
+        }) 
+} 
+
+const response = getResponse(response => {
+    console.log(response.body)
+})
