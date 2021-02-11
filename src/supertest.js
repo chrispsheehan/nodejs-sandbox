@@ -53,11 +53,12 @@ const result = getResponse(response => {
 
 console.log('result is ' + result);
 
+var keyVar = 'text';
 
 //keyvalue pair params
 request('https://www.purgomalum.com/service')
     .get('/containsprofanity?')
-    .query({text: "ass"})
+    .query({[keyVar]: "ass"})
     .set('Accept', 'text/plain')
     .expect(200)
     .then(response => {
@@ -65,3 +66,6 @@ request('https://www.purgomalum.com/service')
         // assert.equal(response.text, 'false');        
         console.log('no issues kp params')
     })
+
+
+   
