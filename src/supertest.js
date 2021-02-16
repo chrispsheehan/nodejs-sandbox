@@ -46,12 +46,9 @@ function getResponse(callback) {
         }) 
 } 
 
-const result = getResponse(response => {
+getResponse(response => {
         console.log(response.text);
-        return response.text;
     });
-
-console.log('result is ' + result);
 
 var keyVar = 'text';
 
