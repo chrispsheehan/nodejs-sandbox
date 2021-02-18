@@ -65,4 +65,26 @@ request('https://www.purgomalum.com/service')
     })
 
 
-   
+// with promises
+function getBody() {
+    return new Promise((resolve, reject) => {
+        request('https://www.purgomalum.com/service')
+        .get('/containsprofanity?')
+        .query({[keyVar]: "ass"})
+        .set('Accept', 'text/plain')
+        .expect(200)
+        .then(response => {
+            return resolve(response.text);
+        })
+        .catch(err => {
+            return reject(err);
+        });
+    });
+  }
+
+async function getSomeBody() {
+    let result = await getBody();
+    console.log('blah blah' + result);
+}
+
+getSomeBody();
