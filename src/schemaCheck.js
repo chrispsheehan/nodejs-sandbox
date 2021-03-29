@@ -23,6 +23,7 @@ console.log(fruitSchema);
 expect(goodApple).to.be.jsonSchema(fruitSchema);
 expect(badApple).to.not.be.jsonSchema(fruitSchema);
 
+//should style
 goodApple.should.be.jsonSchema(fruitSchema);
 badApple.should.not.be.jsonSchema(fruitSchema);
 
