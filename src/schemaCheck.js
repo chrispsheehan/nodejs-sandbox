@@ -46,3 +46,19 @@ let appleIncorrectType = {
 };
 
 expect(appleIncorrectType).to.not.be.jsonSchema(fruitSchema);
+
+let appleMultipack = [{
+  skin: "thin",
+  colors: ["red", "green", "yellow"],
+  taste: 'veryNice'
+},
+{
+  skin: "thin",
+  colors: ["red", "green", "yellow"],
+  taste: 10
+}];
+
+expect(appleMultipack).to.be.an('array')
+expect(appleMultipack[1]).to.be.jsonSchema(fruitSchema);
+expect(appleMultipack[0]).to.not.be.jsonSchema(fruitSchema);
+
