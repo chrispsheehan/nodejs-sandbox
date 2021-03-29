@@ -30,3 +30,19 @@ badApple.should.not.be.jsonSchema(fruitSchema);
 //tdd style
 assert.jsonSchema(goodApple, fruitSchema);
 assert.notJsonSchema(badApple, fruitSchema);
+
+
+let appleMissingSkin = {
+  colors: ["red", "green", "yellow"],
+  taste: 10,
+};
+
+expect(appleMissingSkin).to.not.be.jsonSchema(fruitSchema);
+
+let appleIncorrectType = {
+  skin: "thin",
+  colors: ["red", "green", "yellow"],
+  taste: 'veryNice'
+};
+
+expect(appleIncorrectType).to.not.be.jsonSchema(fruitSchema);
